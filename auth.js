@@ -26,10 +26,11 @@ function loginUser(event) {
   const password = document.getElementById("loginPassword").value.trim();
   const msg = document.getElementById("login-msg");
 
-  const savedUser = localStorage.getItem("savedUsername");
-  const savedPass = localStorage.getItem("savedPassword");
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-  if (username === savedUser && password === savedPass) {
+  const validUser = users.find(user => user.username === username && user.password === password);
+
+  if (validUser) {
     msg.style.color = "green";
     msg.innerText = "Login successful!";
     localStorage.setItem("isLoggedIn", "true");
@@ -40,6 +41,18 @@ function loginUser(event) {
     msg.style.color = "red";
     msg.innerText = "Invalid credentials!";
   }
+}
+
+// Add some default test users (only once)
+if (!localStorage.getItem("testUsersInitialized")) {
+  const testUsers = [
+    { username: "raghava", password: "raghava" },
+    { username: "testuser", password: "test123" },
+  
+  ];
+
+  localStorage.setItem("users", JSON.stringify(testUsers));
+  localStorage.setItem("testUsersInitialized", "true");
 }
 
 window.addEventListener("DOMContentLoaded", () => {

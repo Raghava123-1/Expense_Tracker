@@ -277,6 +277,12 @@ function populateMonthFilter() {
 }
 
 
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    window.location.href = "auth.html"; // redirect back to login/register
+  });
+
 if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
     toggleDarkModeBtn.innerText = '☀️';

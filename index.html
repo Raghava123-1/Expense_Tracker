@@ -4,18 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <div class="top-bar">
+    <div class="account-area">
+      <i class="fas fa-user-circle"></i>
+      <span>Welcome, User</span>
+      <button id="logoutBtn">Logout</button>
+    </div>
+    <div id="darkModeToggleContainer">
+      <button id="toggleDarkMode" title="Toggle Dark Mode">🌓</button>
+    </div>
+  </div>
+
   <div class="main-container">
-    <!-- Left Side -->
     <div class="left-panel">
       <h1>Expense Tracker</h1>
-      <!-- Place this inside your body, ideally at the top -->
-  <div id="darkModeToggleContainer">
-    <button id="toggleDarkMode" title="Toggle Dark Mode">🌙</button>
-  </div>
 
       <div class="balance">
         <h3>Your Balance</h3>
@@ -88,7 +95,6 @@
       </form>
     </div>
 
-    <!-- Right Side -->
     <div class="right-panel">
       <h3>Overview - Pie Chart</h3>
       <canvas id="expensePieChart"></canvas>
