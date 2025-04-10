@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login & Register</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Login Section -->
+    <form id="login-form" class="card" onsubmit="return loginUser(event)">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="loginUsername" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="pass-wrapper">
+          <input type="password" id="loginPassword" required />
+          <span onclick="toggleVisibility('loginPassword')" class="eye">👁️</span>
+        </div>
+      </div>
+      <button type="submit">Login</button>
+      <p id="login-msg" class="msg"></p>
+    </form>
+
+    <!-- Register Section -->
+    <form id="register-form" class="card" onsubmit="return registerUser(event)">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="registerUsername" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div class="pass-wrapper">
+          <input type="password" id="registerPassword" required />
+          <span onclick="toggleVisibility('registerPassword')" class="eye">👁️</span>
+        </div>
+      </div>
+      <button type="submit">Register</button>
+      <p id="register-msg" class="msg"></p>
+    </form>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
