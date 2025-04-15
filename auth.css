@@ -7,16 +7,39 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  animation: backgroundShift 10s infinite alternate ease-in-out;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
 }
 
 .container {
   display: flex;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  width: 800px;
-  max-width: 90%;
+  width: 850px;
+  max-width: 95%;
+  animation: fadeInScale 1s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .card {
@@ -25,57 +48,91 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .card h2 {
   margin-bottom: 25px;
   color: #0077b6;
+  text-align: center;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-group {
   margin-bottom: 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 label {
   display: block;
   margin-bottom: 6px;
   color: #333;
+  font-weight: 500;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #bbb;
   border-radius: 8px;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.3s;
+  font-size: 15px;
 }
 
 input:focus {
   outline: none;
   border-color: #00b4d8;
+  box-shadow: 0 0 10px #00b4d8aa;
 }
 
 button {
-  padding: 10px;
-  background-color: #00b4d8;
+  padding: 12px;
+  background: linear-gradient(to right, #00b4d8, #0096c7);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 12px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
 }
 
 button:hover {
-  background-color: #0096c7;
+  background: linear-gradient(to right, #0077b6, #023e8a);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.4);
 }
 
 .msg {
-  margin-top: 10px;
+  margin-top: 12px;
   text-align: center;
   font-size: 14px;
+  font-weight: 500;
+  min-height: 18px;
 }
 
 .pass-wrapper {
@@ -84,9 +141,15 @@ button:hover {
 
 .eye {
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.eye:hover {
+  color: #0077b6;
 }
